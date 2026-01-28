@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reputation - ProofWork</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ProofWork</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+                <a href="tasks.html">
+                    <i class="fas fa-tasks"></i>
+                    <span>Browse Tasks</span>
+                </a>
+                <a href="submit-work.html">
+                    <i class="fas fa-upload"></i>
+                    <span>Submit Work</span>
+                </a>
+                <a href="reputation.html" class="active">
+                    <i class="fas fa-star"></i>
+                    <span>Reputation</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header">
+                <h1><i class="fas fa-trophy"></i> Reputation Score</h1>
+            </div>
+
+            <!-- Main Reputation Card -->
+            <div class="card">
+                <div class="reputation-display">
+                    <div class="reputation-score" id="reputationScore">0</div>
+                    <div class="reputation-level" id="reputationLevel">Newcomer</div>
+                    <p style="color: var(--gray); margin-bottom: 24px;">Keep building to unlock more opportunities</p>
+                    
+                    <div class="reputation-bar">
+                        <div class="reputation-progress" id="reputationProgress" style="width: 0%"></div>
+                    </div>
+                    
+                    <p style="color: var(--gray); font-size: 14px;" id="nextLevelText">
+                        <span id="pointsToNext">100</span> points to next level
+                    </p>
+                </div>
+            </div>
+
+            <!-- Reputation Breakdown -->
+            <div class="card">
+                <h2><i class="fas fa-chart-pie"></i> Reputation Breakdown</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 24px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; font-weight: 700; color: var(--primary);" id="projectPoints">0</div>
+                        <p style="color: var(--gray); margin-top: 8px;">Project Completions</p>
+                        <small style="color: var(--gray);">+10-50 per project</small>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; font-weight: 700; color: var(--success);" id="reviewPoints">0</div>
+                        <p style="color: var(--gray); margin-top: 8px;">Client Reviews</p>
+                        <small style="color: var(--gray);">+5-20 per review</small>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; font-weight: 700; color: var(--warning);" id="complexityPoints">0</div>
+                        <p style="color: var(--gray); margin-top: 8px;">Complexity Bonus</p>
+                        <small style="color: var(--gray);">+10-100 for difficulty</small>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; font-weight: 700; color: var(--secondary);" id="diversityPoints">0</div>
+                        <p style="color: var(--gray); margin-top: 8px;">Skill Diversity</p>
+                        <small style="color: var(--gray);">+5-30 for range</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reputation Levels -->
+            <div class="card">
+                <h2><i class="fas fa-layer-group"></i> Reputation Levels</h2>
+                <div style="margin-top: 24px;">
+                    <div style="padding: 16px; background: var(--bg); border-radius: 8px; margin-bottom: 12px; border-left: 4px solid var(--gray);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3>🌱 Newcomer</h3>
+                                <p style="color: var(--gray); font-size: 14px; margin-top: 4px;">Just starting your journey</p>
+                            </div>
+                            <span style="font-weight: 700; color: var(--gray);">0 - 99</span>
+                        </div>
+                    </div>
+
+                    <div style="padding: 16px; background: var(--bg); border-radius: 8px; margin-bottom: 12px; border-left: 4px solid #3b82f6;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3>⚡ Apprentice</h3>
+                                <p style="color: var(--gray); font-size: 14px; margin-top: 4px;">Learning and growing</p>
+                            </div>
+                            <span style="font-weight: 700; color: #3b82f6;">100 - 499</span>
+                        </div>
+                    </div>
+
+                    <div style="padding: 16px; background: var(--bg); border-radius: 8px; margin-bottom: 12px; border-left: 4px solid var(--primary);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3>💼 Professional</h3>
+                                <p style="color: var(--gray); font-size: 14px; margin-top: 4px;">Proven track record</p>
+                            </div>
+                            <span style="font-weight: 700; color: var(--primary);">500 - 999</span>
+                        </div>
+                    </div>
+
+                    <div style="padding: 16px; background: var(--bg); border-radius: 8px; margin-bottom: 12px; border-left: 4px solid var(--success);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3>🎯 Expert</h3>
+                                <p style="color: var(--gray); font-size: 14px; margin-top: 4px;">Highly skilled and reliable</p>
+                            </div>
+                            <span style="font-weight: 700; color: var(--success);">1000 - 2499</span>
+                        </div>
+                    </div>
+
+                    <div style="padding: 16px; background: var(--bg); border-radius: 8px; margin-bottom: 12px; border-left: 4px solid #f59e0b;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3>👑 Master</h3>
+                                <p style="color: var(--gray); font-size: 14px; margin-top: 4px;">Elite performer</p>
+                            </div>
+                            <span style="font-weight: 700; color: #f59e0b;">2500 - 4999</span>
+                        </div>
+                    </div>
+
+                    <div style="padding: 16px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 8px; color: white;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h3>🔥 Legend</h3>
+                                <p style="opacity: 0.9; font-size: 14px; margin-top: 4px;">Top 1% of all users</p>
+                            </div>
+                            <span style="font-weight: 700;">5000+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Increase Reputation -->
+            <div class="card">
+                <h2><i class="fas fa-rocket"></i> How to Increase Your Reputation</h2>
+                <div style="margin-top: 24px;">
+                    <div style="display: grid; gap: 16px;">
+                        <div style="display: flex; gap: 16px; padding: 16px; background: var(--bg); border-radius: 8px;">
+                            <div style="width: 48px; height: 48px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0;">
+                                <i class="fas fa-plus" style="font-size: 24px;"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 4px;">Complete More Projects</h3>
+                                <p style="color: var(--gray);">Each verified project adds 10-50 points based on complexity and quality.</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 16px; padding: 16px; background: var(--bg); border-radius: 8px;">
+                            <div style="width: 48px; height: 48px; background: var(--success); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0;">
+                                <i class="fas fa-star" style="font-size: 24px;"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 4px;">Earn 5-Star Reviews</h3>
+                                <p style="color: var(--gray);">Positive client feedback significantly boosts your score. Quality over quantity!</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 16px; padding: 16px; background: var(--bg); border-radius: 8px;">
+                            <div style="width: 48px; height: 48px; background: var(--warning); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0;">
+                                <i class="fas fa-brain" style="font-size: 24px;"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 4px;">Take on Complex Challenges</h3>
+                                <p style="color: var(--gray);">Advanced projects with multiple technologies earn bonus complexity points.</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 16px; padding: 16px; background: var(--bg); border-radius: 8px;">
+                            <div style="width: 48px; height: 48px; background: var(--secondary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0;">
+                                <i class="fas fa-layer-group" style="font-size: 24px;"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 4px;">Diversify Your Skills</h3>
+                                <p style="color: var(--gray);">Show proficiency across multiple domains to earn diversity bonuses.</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 16px; padding: 16px; background: var(--bg); border-radius: 8px;">
+                            <div style="width: 48px; height: 48px; background: #ef4444; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0;">
+                                <i class="fas fa-exclamation-triangle" style="font-size: 24px;"></i>
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 4px;">Maintain High Standards</h3>
+                                <p style="color: var(--gray);">Failed projects, disputes, or false claims result in reputation penalties.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity Log -->
+            <div class="card">
+                <h2><i class="fas fa-history"></i> Reputation History</h2>
+                <div id="reputationHistory" style="margin-top: 24px;">
+                    <p style="color: var(--gray); text-align: center; padding: 40px;">
+                        No activity yet. Complete your first project to start building reputation!
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/reputation.js"></script>
+</body>
+  </html>
