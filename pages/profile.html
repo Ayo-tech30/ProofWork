@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - ProofWork</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ProofWork</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="profile.html" class="active">
+                    <i class="fas fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+                <a href="tasks.html">
+                    <i class="fas fa-tasks"></i>
+                    <span>Browse Tasks</span>
+                </a>
+                <a href="submit-work.html">
+                    <i class="fas fa-upload"></i>
+                    <span>Submit Work</span>
+                </a>
+                <a href="reputation.html">
+                    <i class="fas fa-star"></i>
+                    <span>Reputation</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header">
+                <h1><i class="fas fa-user"></i> My Profile</h1>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; gap: 40px; align-items: start;">
+                    <div style="text-align: center;">
+                        <div style="width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; color: white; font-size: 64px; font-weight: 700; margin-bottom: 16px;">
+                            <span id="userInitials">U</span>
+                        </div>
+                        <button class="btn-outline" style="font-size: 14px; padding: 8px 16px;">
+                            <i class="fas fa-camera"></i> Change Photo
+                        </button>
+                    </div>
+                    
+                    <div style="flex: 1;">
+                        <h2 id="profileName" style="margin-bottom: 8px;">Loading...</h2>
+                        <p style="color: var(--gray); margin-bottom: 16px;">
+                            <span class="badge badge-primary" id="userRole">Worker</span>
+                            <span style="margin-left: 16px;">
+                                <i class="fas fa-envelope"></i> <span id="profileEmail">email@example.com</span>
+                            </span>
+                        </p>
+                        <p id="profileBio" style="color: var(--gray); line-height: 1.8; margin-bottom: 20px;">
+                            No bio added yet.
+                        </p>
+                        
+                        <div style="display: flex; gap: 12px; margin-bottom: 20px;" id="profileLinks">
+                            <!-- Links will be populated by JS -->
+                        </div>
+                        
+                        <button class="btn-primary" onclick="document.getElementById('editModal').style.display='block'">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="card">
+                <h2><i class="fas fa-code"></i> Skills</h2>
+                <div id="skillsList" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;">
+                    <span class="badge badge-primary">JavaScript</span>
+                    <span class="badge badge-primary">React</span>
+                    <span class="badge badge-primary">Node.js</span>
+                    <span class="badge badge-primary">Python</span>
+                </div>
+            </div>
+
+            <!-- Work History -->
+            <div class="card">
+                <h2><i class="fas fa-briefcase"></i> Work History</h2>
+                <div id="workHistory">
+                    <p style="color: var(--gray); text-align: center; padding: 40px;">
+                        No projects submitted yet. <a href="submit-work.html">Submit your first project!</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Reviews -->
+            <div class="card">
+                <h2><i class="fas fa-star"></i> Client Reviews</h2>
+                <div id="reviewsList">
+                    <p style="color: var(--gray); text-align: center; padding: 40px;">
+                        No reviews yet. Complete tasks to receive feedback!
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="editModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 9999; padding: 40px;">
+        <div class="auth-card" style="max-width: 600px; margin: 0 auto; max-height: 90vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h2>Edit Profile</h2>
+                <button onclick="document.getElementById('editModal').style.display='none'" style="background: none; border: none; font-size: 24px; cursor: pointer; color: var(--gray);">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label for="editFullName">Full Name</label>
+                    <input type="text" id="editFullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editBio">Bio</label>
+                    <textarea id="editBio"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="editSkills">Skills (comma separated)</label>
+                    <input type="text" id="editSkills" placeholder="JavaScript, React, Node.js">
+                </div>
+
+                <div class="form-group">
+                    <label for="editGithub">GitHub Profile</label>
+                    <input type="url" id="editGithub" placeholder="https://github.com/username">
+                </div>
+
+                <div class="form-group">
+                    <label for="editLinkedin">LinkedIn Profile</label>
+                    <input type="url" id="editLinkedin" placeholder="https://linkedin.com/in/username">
+                </div>
+
+                <div class="form-group">
+                    <label for="editPortfolio">Portfolio Website</label>
+                    <input type="url" id="editPortfolio" placeholder="https://yoursite.com">
+                </div>
+
+                <button type="submit" class="form-submit">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+          </html>
