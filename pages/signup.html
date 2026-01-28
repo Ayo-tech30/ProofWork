@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ProofWork</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ProofWork</span>
+                </div>
+                <h1>Create Account</h1>
+                <p>Start building your verifiable reputation</p>
+            </div>
+
+            <div id="errorMessage" class="alert alert-error" style="display: none;"></div>
+            <div id="successMessage" class="alert alert-success" style="display: none;"></div>
+
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="role">I am a</label>
+                    <select id="role" required>
+                        <option value="">Select your role</option>
+                        <option value="worker">Worker - Build my reputation</option>
+                        <option value="employer">Employer - Find verified talent</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Minimum 8 characters" required minlength="8">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+                </div>
+
+                <div id="workerFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="skills">Your Skills (comma separated)</label>
+                        <input type="text" id="skills" placeholder="JavaScript, React, Node.js">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Short Bio</label>
+                        <textarea id="bio" placeholder="Tell us about yourself and your experience..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="github">GitHub Profile (optional)</label>
+                        <input type="url" id="github" placeholder="https://github.com/username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn Profile (optional)</label>
+                        <input type="url" id="linkedin" placeholder="https://linkedin.com/in/username">
+                    </div>
+                </div>
+
+                <div id="employerFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" placeholder="Acme Inc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companySize">Company Size</label>
+                        <select id="companySize">
+                            <option value="">Select size</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-500">201-500 employees</option>
+                            <option value="500+">500+ employees</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="website">Company Website</label>
+                        <input type="url" id="website" placeholder="https://example.com">
+                    </div>
+                </div>
+
+                <button type="submit" class="form-submit" id="submitBtn">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>or sign up with</span>
+            </div>
+
+            <div class="social-auth">
+                <button class="social-btn" id="googleSignup">
+                    <i class="fab fa-google"></i>
+                </button>
+                <button class="social-btn" id="githubSignup">
+                    <i class="fab fa-github"></i>
+                </button>
+                <button class="social-btn" id="linkedinSignup">
+                    <i class="fab fa-linkedin"></i>
+                </button>
+            </div>
+
+            <div class="form-footer">
+                Already have an account? <a href="login.html">Log In</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/signup.js"></script>
+</body>
+                      </html>
