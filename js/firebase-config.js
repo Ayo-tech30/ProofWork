@@ -1,12 +1,13 @@
 // Firebase Configuration
 // Replace with your Firebase project credentials
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBS1SqJ6eL4Ftca0BFi24NjwGAQuV3cc6k",
+  authDomain: "proofwork-d656d.firebaseapp.com",
+  projectId: "proofwork-d656d",
+  storageBucket: "proofwork-d656d.firebasestorage.app",
+  messagingSenderId: "674495700504",
+  appId: "1:674495700504:web:66acd0c8f3d9232b76ad6d",
+  measurementId: "G-9KYD0G9SK6"
 };
 
 // Initialize Firebase
