@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ProofWork</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ProofWork</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+                <a href="tasks.html">
+                    <i class="fas fa-tasks"></i>
+                    <span>Browse Tasks</span>
+                </a>
+                <a href="submit-work.html">
+                    <i class="fas fa-upload"></i>
+                    <span>Submit Work</span>
+                </a>
+                <a href="reputation.html">
+                    <i class="fas fa-star"></i>
+                    <span>Reputation</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header">
+                <div>
+                    <h1>Welcome back, <span id="userName">User</span>!</h1>
+                    <p style="color: var(--gray); margin-top: 8px;">Here's your activity overview</p>
+                </div>
+                <div>
+                    <a href="submit-work.html" class="btn-primary">
+                        <i class="fas fa-plus"></i> Submit New Work
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-value" id="reputationScore">0</div>
+                    <div class="stat-label">Reputation Score</div>
+                </div>
+
+                <div class="stat-card" style="border-left-color: var(--success);">
+                    <div class="stat-icon" style="color: var(--success);">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-value" id="completedProjects">0</div>
+                    <div class="stat-label">Completed Projects</div>
+                </div>
+
+                <div class="stat-card" style="border-left-color: var(--warning);">
+                    <div class="stat-icon" style="color: var(--warning);">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-value" id="pendingReviews">0</div>
+                    <div class="stat-label">Pending Reviews</div>
+                </div>
+
+                <div class="stat-card" style="border-left-color: var(--secondary);">
+                    <div class="stat-icon" style="color: var(--secondary);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-value" id="skillBadges">0</div>
+                    <div class="stat-label">Skill Badges</div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="card">
+                <h2><i class="fas fa-history"></i> Recent Activity</h2>
+                <div id="recentActivity">
+                    <p style="color: var(--gray); text-align: center; padding: 40px;">
+                        No recent activity. Start by submitting your first project!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card">
+                <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                    <a href="submit-work.html" style="text-decoration: none;">
+                        <div style="padding: 24px; background: var(--bg); border-radius: 8px; text-align: center; border: 2px solid var(--gray-light); transition: all 0.3s;">
+                            <i class="fas fa-upload" style="font-size: 32px; color: var(--primary); margin-bottom: 12px;"></i>
+                            <h3 style="font-size: 16px; color: var(--dark);">Submit Work</h3>
+                        </div>
+                    </a>
+                    
+                    <a href="tasks.html" style="text-decoration: none;">
+                        <div style="padding: 24px; background: var(--bg); border-radius: 8px; text-align: center; border: 2px solid var(--gray-light); transition: all 0.3s;">
+                            <i class="fas fa-tasks" style="font-size: 32px; color: var(--success); margin-bottom: 12px;"></i>
+                            <h3 style="font-size: 16px; color: var(--dark);">Browse Tasks</h3>
+                        </div>
+                    </a>
+                    
+                    <a href="profile.html" style="text-decoration: none;">
+                        <div style="padding: 24px; background: var(--bg); border-radius: 8px; text-align: center; border: 2px solid var(--gray-light); transition: all 0.3s;">
+                            <i class="fas fa-user-edit" style="font-size: 32px; color: var(--warning); margin-bottom: 12px;"></i>
+                            <h3 style="font-size: 16px; color: var(--dark);">Edit Profile</h3>
+                        </div>
+                    </a>
+                    
+                    <a href="reputation.html" style="text-decoration: none;">
+                        <div style="padding: 24px; background: var(--bg); border-radius: 8px; text-align: center; border: 2px solid var(--gray-light); transition: all 0.3s;">
+                            <i class="fas fa-chart-line" style="font-size: 32px; color: var(--secondary); margin-bottom: 12px;"></i>
+                            <h3 style="font-size: 16px; color: var(--dark);">View Stats</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Available Tasks Preview -->
+            <div class="card">
+                <h2><i class="fas fa-briefcase"></i> Featured Tasks</h2>
+                <div id="featuredTasks">
+                    <p style="color: var(--gray); text-align: center; padding: 40px;">
+                        Loading available tasks...
+                    </p>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="tasks.html" class="btn-outline">View All Tasks</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+          </html>
