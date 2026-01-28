@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Work - ProofWork</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ProofWork</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+                <a href="tasks.html">
+                    <i class="fas fa-tasks"></i>
+                    <span>Browse Tasks</span>
+                </a>
+                <a href="submit-work.html" class="active">
+                    <i class="fas fa-upload"></i>
+                    <span>Submit Work</span>
+                </a>
+                <a href="reputation.html">
+                    <i class="fas fa-star"></i>
+                    <span>Reputation</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header">
+                <div>
+                    <h1><i class="fas fa-upload"></i> Submit Work</h1>
+                    <p style="color: var(--gray); margin-top: 8px;">Add a new project to your portfolio and build your reputation</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div id="successMessage" class="alert alert-success" style="display: none;">
+                    <i class="fas fa-check-circle"></i> Project submitted successfully! It's now pending review.
+                </div>
+
+                <form id="submitWorkForm">
+                    <div class="form-group">
+                        <label for="projectType">Submission Type</label>
+                        <select id="projectType" required>
+                            <option value="">Select type</option>
+                            <option value="completed_task">Completed Task (from marketplace)</option>
+                            <option value="existing_project">Existing Project (portfolio piece)</option>
+                            <option value="open_source">Open Source Contribution</option>
+                            <option value="freelance">Freelance Work</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectTitle">Project Title *</label>
+                        <input type="text" id="projectTitle" placeholder="e.g., E-commerce Dashboard with Real-time Analytics" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectDescription">Project Description *</label>
+                        <textarea id="projectDescription" placeholder="Describe what you built, the problem it solves, and your approach..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="technologies">Technologies Used *</label>
+                        <input type="text" id="technologies" placeholder="React, Node.js, MongoDB, AWS (comma separated)" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="endDate">Completion Date</label>
+                            <input type="date" id="endDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectUrl">Live Project URL</label>
+                        <input type="url" id="projectUrl" placeholder="https://project-demo.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="githubUrl">GitHub Repository *</label>
+                        <input type="url" id="githubUrl" placeholder="https://github.com/username/repo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="documentation">Documentation URL (optional)</label>
+                        <input type="url" id="documentation" placeholder="https://docs.project.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientEmail">Client/Employer Email (for verification)</label>
+                        <input type="email" id="clientEmail" placeholder="client@company.com">
+                        <small style="color: var(--gray); display: block; margin-top: 4px;">
+                            We'll contact them to verify your work. Leave empty for personal projects.
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectFiles">Project Files/Screenshots</label>
+                        <input type="file" id="projectFiles" multiple accept="image/*,.pdf,.zip">
+                        <small style="color: var(--gray); display: block; margin-top: 4px;">
+                            Upload screenshots, design files, or documentation (max 10MB per file)
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="achievements">Key Achievements & Metrics</label>
+                        <textarea id="achievements" placeholder="e.g., Reduced load time by 60%, Handled 10k+ concurrent users, Increased conversion by 25%"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="challenges">Challenges Overcome</label>
+                        <textarea id="challenges" placeholder="Describe technical challenges you faced and how you solved them..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="originalWork" required style="width: auto; margin-right: 8px;">
+                            I certify that this is my original work or I have proper authorization to submit it
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="accurateInfo" required style="width: auto; margin-right: 8px;">
+                            All information provided is accurate and can be verified
+                        </label>
+                    </div>
+
+                    <div style="background: var(--bg); padding: 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid var(--primary);">
+                        <h3 style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-info-circle" style="color: var(--primary);"></i>
+                            Review Process
+                        </h3>
+                        <ul style="color: var(--gray); line-height: 1.8; margin-left: 20px;">
+                            <li>Submissions are reviewed within 2-3 business days</li>
+                            <li>We verify GitHub commits, project complexity, and client references</li>
+                            <li>Approved projects increase your reputation score</li>
+                            <li>You'll receive detailed feedback regardless of approval status</li>
+                            <li>False claims result in reputation penalties and potential account suspension</li>
+                        </ul>
+                    </div>
+
+                    <button type="submit" class="form-submit" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Submit for Review
+                    </button>
+                </form>
+            </div>
+
+            <!-- Previous Submissions -->
+            <div class="card">
+                <h2><i class="fas fa-history"></i> Your Submissions</h2>
+                <div id="previousSubmissions">
+                    <div style="display: grid; gap: 16px;">
+                        <!-- Sample submission -->
+                        <div style="padding: 20px; background: var(--bg); border-radius: 8px; border-left: 4px solid var(--warning);">
+                            <div style="display: flex; justify-content: between; align-items: start; margin-bottom: 12px;">
+                                <div style="flex: 1;">
+                                    <h3 style="margin-bottom: 4px;">React E-commerce Platform</h3>
+                                    <p style="color: var(--gray); font-size: 14px;">Submitted 3 days ago</p>
+                                </div>
+                                <span class="badge badge-warning">Under Review</span>
+                            </div>
+                            <div style="display: flex; gap: 8px; margin-top: 12px;">
+                                <span class="badge badge-primary">React</span>
+                                <span class="badge badge-primary">Node.js</span>
+                                <span class="badge badge-primary">MongoDB</span>
+                            </div>
+                        </div>
+
+                        <!-- No submissions message if empty -->
+                        <p style="color: var(--gray); text-align: center; padding: 20px; display: none;" id="noSubmissions">
+                            No submissions yet. Submit your first project above!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/submit-work.js"></script>
+</body>
+  </html>
