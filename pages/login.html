@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ProofWork</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ProofWork</span>
+                </div>
+                <h1>Welcome Back</h1>
+                <p>Log in to access your reputation dashboard</p>
+            </div>
+
+            <div id="errorMessage" class="alert alert-error" style="display: none;"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label style="display: flex; align-items: center; gap: 8px; margin: 0;">
+                        <input type="checkbox" id="rememberMe">
+                        <span style="font-weight: normal;">Remember me</span>
+                    </label>
+                    <a href="#" style="color: var(--primary); text-decoration: none; font-size: 14px;">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="form-submit" id="submitBtn">
+                    <i class="fas fa-sign-in-alt"></i> Log In
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>or continue with</span>
+            </div>
+
+            <div class="social-auth">
+                <button class="social-btn" id="googleLogin">
+                    <i class="fab fa-google"></i>
+                </button>
+                <button class="social-btn" id="githubLogin">
+                    <i class="fab fa-github"></i>
+                </button>
+                <button class="social-btn" id="linkedinLogin">
+                    <i class="fab fa-linkedin"></i>
+                </button>
+            </div>
+
+            <div class="form-footer">
+                Don't have an account? <a href="signup.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+  </html>
